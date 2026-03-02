@@ -5,7 +5,9 @@ let csvLoaded = false;
 
 function loadCSV() {
     if (csvLoaded) return;
-    Papa.parse('../songs.csv', {
+    // add a cache-busting query parameter so pages never serve a stale file
+    const csvUrl = '../songs.csv?v=' + Date.now();
+    Papa.parse(csvUrl, {
         download: true,
         header: true,
         skipEmptyLines: true,
