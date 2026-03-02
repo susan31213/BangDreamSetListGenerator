@@ -1,4 +1,5 @@
 # BangDreamSetListGenerator
+https://susan31213.github.io/BangDreamSetListGenerator/web/index.html
 予想したセトリを簡単に作れるツールです。
 ウェブページ上で曲を選んで追加して、最後に画像として出力するツールです。
 
