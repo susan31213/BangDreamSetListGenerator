@@ -1,0 +1,44 @@
+name: Download Google Spreadsheet CSV
+
+on:
+  workflow_dispatch:
+
+jobs:
+  download-and-commit:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      
+      - name: Download CSV from Google Spreadsheet
+        run: |
+          curl -L "https://docs.google.com/spreadsheets/d/1E5lFUVsCatClXxN8NguKAL-SKcCe2g01HSBKml5FjdU/export?format=csv" \
+            -o songs.csv
+      
+      - name: Check if CSV has changed
+        id: check
+        run: |
+          if git diff --quiet songs.csv; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Configure Git
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+      
+      - name: Commit and push changes
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git add songs.csv
+          git commit -m "Update songs.csv from Google Spreadsheet"
+          git push origin main
