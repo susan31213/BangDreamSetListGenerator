@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>BangDream SetList Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
+</head>
+<body>
+    <h1>BangDream SetList Generator</h1>
+
+    <!-- live title always visible -->
+    <div id="liveTitleWrapper" style="margin-bottom:8px;">
+        <label for="liveTitle">ライブタイトル: </label>
+        <input id="liveTitle" type="text" placeholder="Enter title">
+    </div>
+
+    <div id="selectionPlaceholder">
+        <!-- will be replaced with selection UI when user adds first song -->
+    </div>
+    <button id="copyBtn" style="display:none; margin-left:8px;">Copy to Clipboard</button>
+
+    <!-- button to open song selector modal -->
+    <button id="openSelectorBtn">Add Songs</button>
+
+    <!-- modal for song table -->
+    <div id="songModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="controls">
+                <label for="bandFilter">Band:</label>
+                <select id="bandFilter"><option value="">All</option></select>
+                
+                <label for="categoryFilter" style="margin-left:12px;">Category:</label>
+                <select id="categoryFilter"><option value="">All</option></select>
+            </div>
+            <table id="songTable">
+                <thead>
+                    <tr><th></th><th>Band</th><th>Artist</th><th>Title</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

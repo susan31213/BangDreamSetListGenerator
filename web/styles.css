@@ -1,0 +1,214 @@
+body {
+    font-family: 'Noto Sans JP', "Helvetica Neue", Arial, sans-serif;
+    margin: 20px;
+    background: #021526 0%;
+    color: #E2E2B6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* translucent band logo overlay for selection area (can be set via --band-logo on the container) */
+#selectionContainer::before, #selectionContainer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+#selectionContainer::before {
+    background: radial-gradient(circle at 10% 10%, rgba(255,255,255,0.03), transparent 20%);
+}
+
+/* Table style */
+#songTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #111; /* make table text dark for visibility */
+}
+#songTable th, #songTable td {
+    border: 1px solid #e0e0e0;
+    padding: 8px 12px;
+    color: #111; /* ensure cells text dark*/
+}
+/* center the add button column */
+#songTable td:first-child {
+    text-align: center;
+    width: 40px;
+}
+#songTable tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+#songTable tbody tr:hover {
+    background: #e8f0fe;
+}
+#songTable th {
+    background: rgba(255,255,255,0.04);
+    text-align: left;
+}
+
+/* Song card look for modal table rows */
+#songTable tbody tr td {
+    background: transparent;
+    border: none;
+}
+#songTable tbody tr {
+    background: transparent;
+}
+#songTable tbody tr .card {
+    background: #ffffff;
+    color: #111;
+    border-radius: 6px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+}
+#songTable tbody td .card .meta {
+    margin-left: 8px;
+}
+
+/* band filter label */
+#controls label {
+    color: #111;
+    font-weight: 500;
+}
+
+/* Buttons */
+button {
+    font-size: 14px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #0056b3;
+}
+button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+/* plus/minus buttons in selector */
+.plus-btn {
+    background: #28a745;
+    color: #fff;
+    padding: 4px 8px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+.plus-btn:hover {
+    background: #218838;
+}
+.minus-btn {
+    background: #dc3545;
+    color: #fff;
+    padding: 4px 8px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+.minus-btn:hover {
+    background: #c82333;
+}
+
+/* Selected list */
+#selectedList {
+    list-style: none;
+    padding: 0;
+}
+#selectedList li {
+    margin: 8px 0;
+    padding: 10px 12px;
+    background: #ffffff;
+    color: #111; /* ensure dark text on white card */
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#selectedList li .song-text {
+    flex: 1 1 auto;
+    text-align: left;
+    margin-right: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+}
+
+/* ensure small buttons contrast on white cards */
+.yt-btn, .remove-btn {
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.08);
+    color: #222;
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+.yt-btn {
+    background: linear-gradient(90deg,#ff6b6b,#ff3b3b);
+    color: #fff;
+    border: none;
+}
+.yt-btn:hover { background: linear-gradient(90deg,#ff5252,#e60000); }
+.remove-btn { color: #b00020; border: none; background: transparent; font-weight: 700; }
+.remove-btn:hover { color: #900019; }
+
+/* Live title input */
+#liveTitle {
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+/* modal tweaks (might override modal.css) */
+.modal-content {
+    max-width: 600px;
+}
+
+/* small icon buttons */
+.remove-btn {
+    background: transparent;
+    color: #c00;
+    font-weight: bold;
+}
+.remove-btn:hover {
+    background: transparent;
+    color: #900;
+}
+/* YouTube search button */
+.yt-btn {
+    background: #ff0000;
+    color: white;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 13px;
+    border: none;
+}
+.yt-btn:hover {
+    background: #cc0000;
+}
+
+#openSelectorBtn {
+    margin-bottom: 20px;
+}
+
+/* export and copy buttons share appearance */
+#copyBtn {
+    font-size: 14px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#copyBtn:hover {
+    background: #218838;
+}
