@@ -8,6 +8,8 @@ https://susan31213.github.io/BangDreamSetListGenerator/web/index.html
 そのcsvファイルは曲のデータベースです。
 (convert_html_to_csv.pyがその処理です)
 
+Github Actionsで[SpreadSheet](https://docs.google.com/spreadsheets/d/1E5lFUVsCatClXxN8NguKAL-SKcCe2g01HSBKml5FjdU/edit?usp=sharing)の内容をcsvファイルとしてダウンロードし、mainブランチにプッシュする仕組みもあります。
+
 ## Web インターフェース
 
 `web/index.html` をブラウザで開くと、最初は白い画面に
