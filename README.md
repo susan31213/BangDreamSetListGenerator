@@ -1,10 +1,14 @@
 # BangDreamSetListGenerator
+https://susan31213.github.io/BangDreamSetListGenerator/web/index.html
+
 予想したセトリを簡単に作れるツールです。
 ウェブページ上で曲を選んで追加して、最後に画像として出力するツールです。
 
 選べる曲はsongs.htmlから抽出し、csvファイルを生成する。
 そのcsvファイルは曲のデータベースです。
 (convert_html_to_csv.pyがその処理です)
+
+Github Actionsで[SpreadSheet](https://docs.google.com/spreadsheets/d/1E5lFUVsCatClXxN8NguKAL-SKcCe2g01HSBKml5FjdU/edit?usp=sharing)の内容をcsvファイルとしてダウンロードし、mainブランチにプッシュする仕組みもあります。
 
 ## Web インターフェース
 
